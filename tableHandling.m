@@ -30,7 +30,11 @@ Probe
 
 global matrix;
 
+tele = strsplit(packet, ',');
 isDeployed = 0;
+
+
+
 updateGUI_probeTable(handles, matrix.probe);
 
 

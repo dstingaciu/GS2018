@@ -81,11 +81,15 @@ switch xAxis
     case 10
         handles.xProbe = handles.probeData(:,11);
     case 11
-        handles.xProbe = handles.probeData(:,13);
+        handles.xProbe = handles.probeData(:,12);
     case 12
-        handles.xProbe = handles.probeData(:,14);
+        handles.xProbe = handles.probeData(:,13);
     case 13
+        handles.xProbe = handles.probeData(:,14);
+    case 14
         handles.xProbe = handles.probeData(:,15);
+    case 15
+        handles.xProbe = handles.probeData(:,16);
     otherwise
         handles.xProbe = 0;
 end
@@ -112,11 +116,15 @@ switch yAxis
     case 10
         handles.yProbe = handles.probeData(:,11);
     case 11
-        handles.yProbe = handles.probeData(:,13);
+        handles.yProbe = handles.probeData(:,12);
     case 12
-        handles.yProbe = handles.probeData(:,14);
+        handles.yProbe = handles.probeData(:,13);
     case 13
+        handles.yProbe = handles.probeData(:,14);
+    case 14
         handles.yProbe = handles.probeData(:,15);
+    case 15
+        handles.yProbe = handles.probeData(:,16);
     otherwise
         handles.yProbe = 0;
 end
@@ -130,7 +138,6 @@ grid(handles.Graph1, 'on');
 % To fix the plotting issue, try to change all rows to only the previous
 % row in the switch statement above. 
 if (handles.xProbe & handles.yProbe) ~= 0 % Old If
-% if (matrix.glider(end,4) ~= 0) % New if
     plot(handles.xProbe, handles.yProbe, '.-b','Parent', handles.Graph1);
 end
 hold(handles.Graph1,'on');
