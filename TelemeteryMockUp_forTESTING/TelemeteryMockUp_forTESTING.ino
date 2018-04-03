@@ -16,7 +16,7 @@ float gSats = 3; //12
 float tiltX = 5; //13
 float tiltY = 10; //14
 float tiltZ = 8; //15
-float state = 1; //16
+float state = 0; //16
 float deploy = 0;
 
 float counter =0;
@@ -36,6 +36,7 @@ void setup() {
 void loop() {
   ++packetID;
   ++counter;
+  state++;
   temp = random(95,105);
   altitudeStep = random(25,45);
   altitudeStep = altitudeStep/10;
