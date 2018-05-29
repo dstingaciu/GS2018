@@ -62,7 +62,6 @@ end
 switch xAxis
     case 1
         handles.xProbe = handles.probeData(:,2);
-        disp(handles.probeData(:,2));
     case 2
         handles.xProbe = handles.probeData(:,3);
     case 3

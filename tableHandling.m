@@ -32,6 +32,7 @@ global matrix;
 tele = strsplit(packet, ','); %Split the telemtry into seperate cells
 pk = str2num(tele{3}); %Get the packet count from the telemetry
 sS = str2num(tele{16});
+tID = str2num(tele{1});
 
 update_GUIcurrentStateButton(handles, sS); %Update the current state button in GUI
  
@@ -43,14 +44,14 @@ matlab with new information and have all the old information you need to
 add new rows to your global matrix.
 %}
 
+if(tID ~= 0)
+    for i= 1:16
+        matrix.probe(pk, i) = str2num(tele{i}); %
+    end
 
-for i= 1:16
-    matrix.probe(pk, i) = str2num(tele{i}); %
+    updateGUI_probeTable(handles, matrix.probe, pk); %Update the ui Table
+
 end
-
-updateGUI_probeTable(handles, matrix.probe, pk); %Update the ui Table
-
-
 
 
 
