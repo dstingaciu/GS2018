@@ -62,6 +62,7 @@ handles.output = hObject;
 
 % Update handles structure
 guidata(hObject, handles);
+global obj;
 axes (handles.logo);
 imshow ('Team_Tomahawk_logo.PNG');
 %CAnada Flag Logo addition
@@ -121,7 +122,9 @@ global ard;
 selectedPort = get(handles.COMSelect,'Value');
 Portlist = get(handles.COMSelect,'String');
 comport = Portlist{selectedPort};
+obj = serial(selectedPort);
 ard = connectFunction(comport, handles);
+
 
 
 % --- Executes during object creation, after setting all properties.
@@ -223,7 +226,7 @@ function startBurnA_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 global ard;
-fprintf('%c\n', 'A');
+%fwrite(ard, 'A');
  
 
 
