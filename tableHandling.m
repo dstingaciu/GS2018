@@ -45,7 +45,7 @@ add new rows to your global matrix.
 %}
 
 if(tID ~= 0)
-    for i= 1:16
+    for i= 1:17
         matrix.probe(pk, i) = str2num(tele{i}); %
     end
 

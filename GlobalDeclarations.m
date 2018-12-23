@@ -1,4 +1,4 @@
 global matrix
 
-matrix.probe(1:16) = 0;
+matrix.probe(1:17) = 0;
 global ite

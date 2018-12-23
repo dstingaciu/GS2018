@@ -9,56 +9,6 @@ handles.probeData = matrix.probe;
 xAxis = get(handles.graphxAxis, 'Value');
 yAxis = get(handles.graphyAxis, 'Value');
 
-
-
-%{
---ORIGINAL CODE--
-switch xAxis
-    case 1
-        handles.xProbe = handles.probeData(:,3);
-    case 2
-        handles.xProbe = handles.probeData(:,4);
-    case 3
-        handles.xProbe = handles.probeData(:,5);
-    case 6
-        handles.xProbe = handles.probeData(:,6);
-    case 7
-        handles.xProbe = handles.probeData(:,7);
-    case 9
-        handles.xProbe = 0;
-        handles.xProbe = handles.probeData(:,10);
-    case 10
-        handles.xProbe = 0;
-        handles.xProbe = handles.probeData(:,11);
-    otherwise 
-        handles.xProbe = 0;
-end
-switch yAxis
-    case 1
-        handles.yProbe = handles.probeData(:,3);
-    case 2
-        handles.yProbe = handles.probeData(:,4);
-    case 3
-        handles.yProbe = handles.probeData(:,5);
-    case 6
-        handles.yProbe = handles.probeData(:,6);
-    case 7
-        handles.yProbe = handles.probeData(:,7);
-    case 9
-        handles.yProbe = 0;
-        handles.yProbe = handles.probeData(:,10);
-    case 10
-        handles.yProbe = 0;
-        handles.yProbe = handles.probeData(:,11);
-    otherwise 
-        handles.yProbe = 0;
-end
---END ORIGINAL
-%}
-
-
-%-- Potential Fix
-
 switch xAxis
     case 1
         handles.xProbe = handles.probeData(:,2);
@@ -90,6 +40,8 @@ switch xAxis
         handles.xProbe = handles.probeData(:,15);
     case 15
         handles.xProbe = handles.probeData(:,16);
+    case 16
+        handles.xProbe = handles.probeData(:,17);
     otherwise
         handles.xProbe = 0;
 end
@@ -125,11 +77,12 @@ switch yAxis
         handles.yProbe = handles.probeData(:,15);
     case 15
         handles.yProbe = handles.probeData(:,16);
+    case 16
+        handles.yProbe = handles.probeData(:,17);
     otherwise
         handles.yProbe = 0;
 end
 
-%-- End Potential Fix
 
 cla(handles.Graph1);
 grid(handles.Graph1, 'on');

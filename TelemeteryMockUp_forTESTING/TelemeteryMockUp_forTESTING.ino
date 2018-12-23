@@ -1,5 +1,4 @@
-//Used to test ground software with random but proper telemetery
-#include <Servo.h>
+
 //Telemertery data, They are just random
 unsigned int TeamID = 1092; //1
 unsigned long timer = 0;//2
@@ -9,14 +8,15 @@ float pressure = 0; //5
 float temp;// = -10;//6
 float voltage = 5;//7
 float gTime = timer; //8
-float latitude = 0; //9
-float longitude = 0; //10
+float glatitude = 0; //9
+float glongitude = 0; //10
 float gAlt = altitude;//11
 float gSats = 3; //12
-float tiltX = 5; //13
-float tiltY = 10; //14
-float tiltZ = 8; //15
+float pitch = 5; //13
+float roll = 10; //14
+float BSR = 8; //15
 float state = 0; //16
+float direct = 0; //17
 float deploy = 0;
 
 float counter =0;
@@ -34,8 +34,8 @@ void setup() {
 
 
 void loop() {
-  ++packetID;
-  ++counter;
+  packetID++;
+  counter++;
   state++;
   temp = random(95,105);
   altitudeStep = random(25,45);
@@ -43,19 +43,19 @@ void loop() {
   temp = -1.0*temp/(10.0);
   if (counter <=20) {
     altitude = altitude+altitudeStep;
-    tiltX = random(0,180);
-    tiltY = random(0,180);
-    tiltZ = random(0,180);
+    pitch = random(0,180);
+    roll = random(0,180);
+    direct = random(0,180);
   } else if (counter > 20 && counter <24) {
     altitude = altitude;
-    tiltX = random(0,180);
-    tiltY = random(0,180);
-    tiltZ = random(0,180);
+    pitch = random(0,180);
+    roll = random(0,180);
+    direct = random(0,180);
   } else if (counter>=24 && counter <=30){
     altitude = altitude-altitudeStep*3;
-    tiltX = tiltX - 10;
-    tiltY = tiltY - 10;
-    tiltZ = tiltZ - 10;
+    pitch = pitch - 10;
+    roll = roll - 10;
+    direct = direct - 10;
   }
   gAlt = altitude;
  if (counter < 30) {
@@ -83,21 +83,23 @@ void Transmit_data (){
   toradio += ",";
   toradio += gTime;
   toradio += ",";
-  toradio += latitude;
+  toradio += glatitude;
   toradio += ",";
-  toradio += longitude;
+  toradio += glongitude;
   toradio += ",";
   toradio += altitude;
   toradio += ",";
   toradio += gSats;
   toradio += ",";
-  toradio += tiltX;
+  toradio += pitch;
   toradio += ",";
-  toradio += tiltY;
+  toradio += roll;
   toradio += ",";
-  toradio += tiltZ;
+  toradio += direct;
   toradio += ",";
   toradio += state;
+  toradio += ",";
+  toradio += direct;
 
   Serial.println (toradio);
   
